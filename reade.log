@@ -1,0 +1,55 @@
+xuweiqiang@xuweiqiangdeMacBook-Pro test % git clone git@github.com:weiqiangxu/demo.git
+
+-------------------------------------master创建a、b文件
+master % touch a.log
+master % git add .
+master % git commit -m 'master a'
+master % git push
+master % touch b.log
+master % git commit -a
+master % ls
+master % git add .    
+master % git commit -m 'master b'
+master % git push
+master % git branch dev
+master % git checkout dev
+
+
+--------------------------------------拉出dev分支并且创建c文件
+dev % touch c.log
+dev % git add .
+dev % git commit -m 'dev c'
+dev % git push
+dev % git push --set-upstream origin dev
+dev % git push
+dev % git rebase master
+dev % git checkout master
+
+
+-------------------------------------master文件提交d文件
+master % git touch d.log
+master % touch d.log 
+master % git add .
+master % git commit -m 'master -d'
+master % git push
+master % git checkout dev
+
+
+------------------------------------dev没有rebase直接开发，并且创建了e、f文件产生了2个提交，然后rebase master --- 无可避免的多了一个 push -f
+dev % touch e.log
+dev % git add .
+dev % git commit -m 'dev e'
+dev % git push
+dev % git rebase master
+dev % git push
+dev % git push -f
+
+----------------------------------dev继续开发，产生一个提交rebase master发现没有需要rebase的
+dev git status
+dev % touch f.log
+dev % git add .
+dev % git commit -m 'f.log'
+dev % git push
+
+
+--------------------------------dev提合并请求
