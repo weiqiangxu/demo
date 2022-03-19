@@ -52,4 +52,8 @@ dev % git commit -m 'f.log'
 dev % git push
 
 
+dev % git rebase master
+Current branch dev is up to date.
+
 --------------------------------dev提合并请求
+
